@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "do not run this howto as script!"
-# exit 0
+exit 0
 
 cd test
 
