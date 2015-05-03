@@ -88,11 +88,11 @@ echo -en "#include <stdio.h>\nint main(){printf(\"Hello World\");}" | ${BUILDROO
 
 
 # create inital image file
-dd if=/dev/zero of=build/image/rpi2.img bs=1M count=60
+dd if=/dev/zero of=output/rpi.img bs=1M count=60
 
 
 # create partitions
-fdisk build/image/rpi2.img << 'EOF'
+fdisk output/rpi.img << 'EOF'
 n
 
 
@@ -114,7 +114,7 @@ EOF
 
 
 # get partition from image to loopback
-kpartx -as build/image/rpi2.img
+kpartx -as output/rpi.img
 
 
 # write file systems
@@ -151,7 +151,7 @@ tar xvf ${BUILDROOT_FOLDER}/image/rootfs.tar -C mnt/rfs
 sync
 umount mnt/boot
 umount mnt/rfs
-kpartx -d rpi.img
+kpartx -d output/rpi.img
 
 
 # flash image to sdcard
