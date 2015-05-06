@@ -3,9 +3,7 @@
 echo "do not run this howto as script!"
 exit 0
 
-cd test
 
-WORKD_FOLDER=$(pwd)
 
 BUILDROOT_VERSION=2015.02
 BUILDROOT_NAME=buildroot-${BUILDROOT_VERSION}
@@ -26,7 +24,7 @@ make linux-menuconfig      -C $BUILDROOT_FOLDER
 
 
 # save own config
-cp ${BUILDROOT_FOLDER}/.config ${WORK_FOLDER}/my_raspberrypi_defconfig 
+cp ${BUILDROOT_FOLDER}/.config my_raspberrypi_defconfig 
 
 
 # run buildroot
